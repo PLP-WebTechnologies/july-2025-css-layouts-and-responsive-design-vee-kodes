@@ -1,0 +1,225 @@
+ /* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(188, 219, 219);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Grid layout for the entire page */
+body{
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+    grid-template-columns: 0.3fr 2.2fr 0.5fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* Assign grid areas */
+header {grid-area: header;}        
+nav {grid-area: nav;}        
+main {grid-area: main;}
+aside {grid-area: aside;}
+footer {grid-area: footer;}
+        
+ /* Header styles */
+header {
+    background: rgb(0, 60, 80);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Navigation Bar (Flexbox)*/
+.navbar {
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: lightblue;
+    width: 100%;
+}
+
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    list-style: none;
+}
+
+.nav-menu a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 1rem;
+}
+
+/* Main content grid layout */
+.content-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    width: 100%;         /* Always span available space */
+    max-width: 1200px;         
+    margin: 0 auto;
+    padding: 0 15px;      
+}
+
+.card h2{
+    text-align: center;
+}
+
+.card{
+    display: grid;
+    grid-template-columns: auto;
+    background-color: azure;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+} 
+
+.card h3 h4 {
+    margin-bottom: 0rem;
+    font-size: 1.5rem;
+}
+
+.card p {
+    margin-bottom: 0.5rem;
+}
+
+.card ul{
+    margin: 1rem;
+    padding-left: 1rem;
+}      
+        
+.card ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Sidebar styles */
+aside {
+    background-color: lightblue;
+    padding: 1.5rem;
+}
+
+aside h3 {
+    color: #4a5568;
+    font-size: 1.3rem;
+}
+
+aside ul {
+    list-style: square;
+    margin-left: 1rem;
+}
+
+aside a {
+    text-decoration: none;
+    color: #4a5568;
+    display: block;
+}
+
+/* Footer styles */
+footer {
+    background: rgb(0, 60, 80);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    position: relative;
+}
+
+/* Responsive design */
+/* Tablet Styles */
+@media (max-width: 900px) {
+body {
+    grid-template-areas: 
+        "header header header"
+        "nav nav nav"
+        "main main main"
+        "aside aside aside"
+        "footer footer footer";
+    grid-template-columns: 1fr;
+}
+
+.nav-menu {
+    flex-wrap: wrap;
+}
+
+.content-grid {
+    grid-template-columns: 1fr;
+}
+
+aside {
+    margin-top: 20px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+}
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+body {
+    padding: 10px;
+    width: 100%; 
+    margin: auto;
+}
+
+header {
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+header p {
+    font-size: 1rem;
+}
+
+.nav-menu {
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-menu a {
+    width: 100%;
+    text-align: center;
+}
+            
+.card {
+    padding: 15px;
+}
+}
+
+/* Very Small Mobile Devices */
+@media (max-width: 400px) {
+header h1 {
+    font-size: 1.5rem;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+}
+
+.content-grid {
+    gap: 15px;
+}
+}
